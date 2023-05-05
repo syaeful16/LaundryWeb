@@ -49,7 +49,7 @@
         atau
         <hr class="w-full border-grey">
       </div>
-      <a href="" class="w-full my-8 py-3 border border-black rounded-md font-semibold flex justify-center items-center gap-3">
+      <a href="{{ route('google.login') }}" class="w-full my-8 py-3 border border-black rounded-md font-semibold flex justify-center items-center gap-3">
         <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M21.9896 11.2058C21.9896 10.3045 21.9148 9.64674 21.7528 8.96466H11.2192V13.0328H17.4022C17.2776 14.0438 16.6044 15.5663 15.1085 16.5894L15.0875 16.7256L18.418 19.2466L18.6488 19.2691C20.7679 17.3568 21.9896 14.5432 21.9896 11.2058Z" fill="#4285F4"/>
           <path d="M11.2192 21.9244C14.2484 21.9244 16.7913 20.95 18.6488 19.2691L15.1085 16.5894C14.1611 17.235 12.8896 17.6857 11.2192 17.6857C8.25242 17.6857 5.73436 15.7734 4.83675 13.1303L4.70518 13.1412L1.24207 15.76L1.19678 15.883C3.04168 19.464 6.83127 21.9244 11.2192 21.9244Z" fill="#34A853"/>

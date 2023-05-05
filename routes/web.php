@@ -1,7 +1,8 @@
 <?php
 
-use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\GoogleController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,6 +26,10 @@ Route::middleware(['guest'])->prefix('auth')->group(function () {
     //post
     Route::post('/login', [AuthController::class, 'authLogin'])->name('store.login');
     Route::post('/register', [AuthController::class, 'create'])->name('create.register');
+
+    //google
+    Route::get('/redirect', [GoogleController::class, 'redirectToGoogle'])->name('google.login');
+    Route::get('/google/callback', [GoogleController::class, 'googleCallback']);
 });
 
 Route::get('/logout', [AuthController::class, 'logout']);
