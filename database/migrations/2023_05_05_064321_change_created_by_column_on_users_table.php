@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->integer('role')->default(2)->change();
+            $table->string('created_by')->default('web')->change();
         });
     }
 
@@ -22,7 +22,7 @@ return new class extends Migration
     public function down(): void
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->integer('role')->default(null)->change();
+            $table->string('created_by')->default(null)->change();
         });
     }
 };

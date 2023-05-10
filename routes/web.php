@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\GoogleController;
+use App\Mail\TestSendingEmail;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,6 +31,16 @@ Route::middleware(['guest'])->prefix('auth')->group(function () {
     //google
     Route::get('/redirect', [GoogleController::class, 'redirectToGoogle'])->name('google.login');
     Route::get('/google/callback', [GoogleController::class, 'googleCallback']);
+
+    //forgot password
+    Route::get('/forgot-password', [AuthController::class, 'viewForgot'])->name('password.request');
+    Route::post('/forgot-password', [AuthController::class, 'sendEmailForgot'])->name('password.email');
+    Route::get('/reset-password/{token}', [AuthController::class, 'resetPassword'])->name('password.reset');
+    Route::post('/reset-password', [AuthController::class, 'updatePassword'])->name('password.update');
+});
+
+Route::get('send/email', function () {
+    Mail::to('humanya@gmail.com')->send(new TestSendingEmail());
 });
 
 Route::get('/logout', [AuthController::class, 'logout']);

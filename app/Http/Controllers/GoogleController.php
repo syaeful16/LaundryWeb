@@ -19,17 +19,17 @@ class GoogleController extends Controller
         try {
             $user = Socialite::driver('google')->user();
             //find google id
-            $findUser = User::where('google_id', $user->id)->first();
+            $findUser = User::where('google_id', $user->id)->where('email', $user->email)->first();
 
             if($findUser) {
                 Auth::login($findUser);
                 return redirect()->intended('/');
             } else {
                 $newUser = User::create([
-                    'google_id' => $user->id,
                     'name' => $user->name,
                     'email' => $user->email,
                     'password' => bcrypt('syaeful'),
+                    'google_id' => $user->id,
                     'created_by' => 'google',
                 ]);
     

@@ -14,6 +14,12 @@
           <p class="text-sm">Email atau password Anda salah</p>
         </div>
       @endif
+      @if(session('info'))
+        <div class="w-full bg-yellow-100/50 py-2 px-4 rounded border border-yellow-500 my-4 flex justify-center gap-3">
+          <i class="fa-solid fa-circle-info text-yellow-500 text-xl"></i>
+          <p class="font-medium text-sm">{{ session('info') }}</p>
+        </div>
+      @endif
       <form action="{{ route('store.login')}}" method="post">
         @csrf
         <div class="flex flex-col mt-8">
@@ -37,7 +43,7 @@
           @else
             <div class="flex justify-between gap-4">
               <p class="text-grey font-medium text-sm">Min. 8 karakter</p>
-              <a href="#" class="text-blue-500 font-semibold text-sm">Lupa Password?</a>
+              <a href="{{ route('password.request') }}" class="text-blue-500 font-semibold text-sm">Lupa Password?</a>
             </div>
           @enderror
         </div>
