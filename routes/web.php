@@ -37,6 +37,11 @@ Route::middleware(['guest'])->prefix('auth')->group(function () {
     Route::post('/forgot-password', [AuthController::class, 'sendEmailForgot'])->name('password.email');
     Route::get('/reset-password/{token}', [AuthController::class, 'resetPassword'])->name('password.reset');
     Route::post('/reset-password', [AuthController::class, 'updatePassword'])->name('password.update');
+
+    //maps implement
+    Route::get('/maps', function(){
+        return view('booking.booking');
+    });
 });
 
 Route::get('send/email', function () {
